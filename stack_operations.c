@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:36:15 by sshahary          #+#    #+#             */
-/*   Updated: 2023/11/25 16:37:40 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/01 17:19:21 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	maxbit(t_stack **a, t_stack **b)
 		while (0 < size)
 		{
 			if (((*a->index >> i) & 1) == 1)
-				ra(a);
+				ra(a); operations();
 			else
 				pb(a, b);
 			size--;

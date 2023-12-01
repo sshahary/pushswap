@@ -1,55 +1,65 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   operations2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 13:09:51 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/01 17:04:22 by sshahary         ###   ########.fr       */
+/*   Created: 2023/12/01 16:34:25 by sshahary          #+#    #+#             */
+/*   Updated: 2023/12/01 17:23:56 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	sa(t_stack **a)
+int	ra(t_stack **a)
 {
-	if (ft_swap(a) == -1)
+	if (rotate(a) == -1)
 		return (-1);
-	write(1, "sa\n", 3);
+	write(1, "ra\n", 3);
 	return (0);
 }
 
-int	sb(t_stack **b)
+int	rb(t_stack **b)
 {
-	if (ft_swap(b) == -1)
+	if (rotate(b) == -1)
 		return (-1);
-	write(1, "sb\n", 3);
+	write(1, "rb\n", 3);
 	return (0);
 }
 
-int	ss(t_stack **a, t_stack **b)
+int	rr(t_stack **a, t_stack **b)
 {
-	if (ft_lstsize(*a) < 2 || (ft_lstsize(*b) < 2))
+	if ((ft_lstsize(*a) < 2) || (ft_lstsize(*b) < 2))
 		return (-1);
-	ft_swap(a);
-	ft_swap(b);
-	write (1, "ss\n", 3);
+	rotate(a);
+	rotate(b);
+	write(1, "rr\n", 3);
 	return (0);
 }
 
-int	pa(t_stack **a, t_stack **b)
+int	rra(t_stack **a)
 {
-	if (ft_push(a, b) == -1)
+	if (reverse_rotate(a) == -1)
 		return (-1);
-	write(1, "pa\n", 3);
+	write(1, "rra\n", 4);
 	return (0);
 }
 
-int	pb(t_stack **a, t_stack **b)
+int	rrb(t_stack **b)
 {
-	if (ft_push(b, a) == -1)
+	if (reverse_rotate(b) == -1)
 		return (-1);
-	write(1, "pb\n", 3);
+	write(1, "rrb\n", 4);
+	return (0);
+}
+
+int	rrr(t_stack **a, t_stack **b)
+{
+	if ((ft_lstsize(*a)) < 2 || (ft_lstsize(*b) < 2))
+		return (-1);
+	reverse_rotate(a);
+	reverse_rotate(b);
+	write(1, "rrr\n", 1);
 	return (0);
 }

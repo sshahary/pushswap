@@ -6,15 +6,15 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 13:30:06 by sshahary          #+#    #+#             */
-/*   Updated: 2023/11/25 13:35:10 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:19:07 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
-	t_list	*current;
+	t_stack	*current;
 
 	current = (*lst);
 	if (!(*lst) || !(new))
@@ -29,27 +29,27 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	current->next = new;
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
 	new->next = (*lst);
 	(*lst) = new;
 }
 
-t_list	*ft_lstnew(void *content)
+t_stack	*ft_lstnew(void *content)
 {
-	t_list	*new;
+	t_stack	*new;
 
-	new = (t_list *)malloc(sizeof(t_list));
+	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 		return (new);
-	new->content = content;
+	new->data = (int)content;
 	new->next = NULL;
 	return (new);
 }
 
-t_list	*ft_lstlast(t_list *lst)
+t_stack	*ft_lstlast(t_stack *lst)
 {
-	t_list	*current;
+	t_stack	*current;
 
 	current = lst;
 	if (!current)
@@ -59,10 +59,10 @@ t_list	*ft_lstlast(t_list *lst)
 	return (current);
 }
 
-int	ft_lstsize(t_list *lst)
+int	ft_lstsize(t_stack *lst)
 {
 	int		i;
-	t_list	*current;
+	t_stack	*current;
 
 	i = 0;
 	current = lst;
