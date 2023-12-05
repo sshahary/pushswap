@@ -6,6 +6,7 @@ SRCS = push_swap.c \
        operations2.c \
        stack_operations.c \
        validation.c \
+       validation2.c
 
 
 OBJS = $(SRCS:.c=.o)
