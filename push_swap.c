@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:39:04 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/01 16:53:17 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/05 15:25:32 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,11 +106,20 @@ int	main(int ac, char *argv[])
 
 	if (ac < 2)
 		return (-1);
-	checkError(ac, argv);
+	check_args(ac, argv);
 	a = (t_stack **)malloc(sizeof(t_stack *));
 	b = (t_stack **)malloc(sizeof(t_stack *));
 	*a = NULL;
 	*b = NULL;
 	initstack(a, ac, argv);
+	if (sorted(a))
+	{
+		stackfree(a);
+		stackfree(b);
+		return (0);
+	}
+	insert_sort_stack(a, b);
+	stackfree(a);
+	stackfree(b);
 	return (0);
 }

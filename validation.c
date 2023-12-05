@@ -6,18 +6,11 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:24:23 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/05 12:28:14 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/05 12:52:10 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_error(char *a)
-{
-	write(1, &a, 1);
-	write(1, "\n", 1);
-	exit(0);
-}
 
 void	freeft(char **str)
 {
@@ -103,5 +96,5 @@ void	stackfree(t_stack **stack)
 		top = top->next;
 		free(tmp);
 	}
-	free(stack);
+	free(stack)
 }
