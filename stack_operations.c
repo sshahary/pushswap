@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:36:15 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/01 17:19:21 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/05 11:16:26 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	initstack(t_stack **stack, int ac, char *argv[])
 {
 	t_stack	*new;
-	char	*strtoint[];
+	char	**strtoint;
 	int		i;
 
 	i = 0;
@@ -32,6 +32,9 @@ void	initstack(t_stack **stack, int ac, char *argv[])
 		ft_lstadd_back(stack, new);
 		i++;
 	}
+	indexstack(stack);
+	if (argc == 2)
+		freeft(strtoint);
 }
 
 static int	find_max_bit(t_stack **stack)
@@ -68,7 +71,7 @@ void	maxbit(t_stack **a, t_stack **b)
 		while (0 < size)
 		{
 			if (((*a->index >> i) & 1) == 1)
-				ra(a); operations();
+				ra(a);
 			else
 				pb(a, b);
 			size--;
@@ -87,15 +90,3 @@ void	insert_sort_stack(t_stack **a, t_stack **b)
 		normal_sort(*a, *b);
 }
 
-void	printstack(t_stack *stack)
-{
-	int	i;
-
-	i = 0;
-	while (i <= stack->top)
-	{
-		printf("%d ", stack->data[i]);
-		++i;
-	}
-	printf("\n");
-}

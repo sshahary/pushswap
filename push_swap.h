@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:41:09 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/01 16:54:04 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/05 10:44:26 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,11 @@ int		sb(t_stack **b);
 int		ss(t_stack **a, t_stack **b);
 int		pa(t_stack **a, t_stack **b);
 int		pb(t_stack **a, t_stack **b);
+int		ra(t_stack **a);
+int		rb(t_stack **b);
+int		rr(t_stack **a, t_stack **b);
+int		rra(t_stack **a);
+int		rrb(t_stack **b);
+int		rrr(t_stack **a, t_stack **b);
 
 #endif
