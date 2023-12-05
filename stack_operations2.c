@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:16:46 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/05 11:25:13 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/05 12:28:47 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,4 @@ void	sortthree(t_stack **a)
 	min = ft_min(a, -1);
 	nex_min = ft_min(a, min);
 }
+
