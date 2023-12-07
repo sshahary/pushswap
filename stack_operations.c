@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:36:15 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/05 11:16:26 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:16:39 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,3 @@ void	insert_sort_stack(t_stack **a, t_stack **b)
 	else
 		normal_sort(*a, *b);
 }
-

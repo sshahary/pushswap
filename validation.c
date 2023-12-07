@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:24:23 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/05 12:52:10 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:05:31 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	top_index(t_stack **stack, int count)
 	}
 }
 
-void	stackfree(t_stack **stack)
+void	ft_stackfree(t_stack **stack)
 {
 	t_stack	*top;
 	t_stack	*tmp;

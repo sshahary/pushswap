@@ -2,39 +2,35 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
 SRCS = push_swap.c \
-       operations.c \
-       operations2.c \
-       stack_operations.c \
-       validation.c \
-       validation2.c
+	   operations.c \
+	   operations2.c \
+	   stack_operations.c \
+	   validation.c \
+	   validation2.c
 
 
 OBJS = $(SRCS:.c=.o)
 NAME = push_swap
 
-LIB = ./Ft_printf
-LIBFT = $(LIB)/libft.a
+LIBFT = Libft
+LIB   = $(LIBFT)/libft.a
 
 all: $(NAME)
 
-$(NAME): lib $(OBJ)
-	cp $(LIBFT) $(NAME)
+$(LIB):
+		make -C $(LIBFT)
 
-lib :
-    make -C $(LIB)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -I ./
+$(NAME): $(LIB) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) $(LIB) -o $(NAME)
 
 clean:
-    rm -f $(OBJS)
-    make -C libft clean
+	rm -f $(OBJS)
+	make -C $(LIBFT) clean
 
 fclean: clean
-    rm -f $(NAME)
-    rm -f $(LIBFT)
-    make -C fclean Libft/
+	rm -f $(NAME)
+	make -C $(LIBFT) fclean
 
 re: fclean all
 
-.PHONY: all lib clean fclean re
+.PHONY: all clean fclean re

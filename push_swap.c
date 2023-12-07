@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:39:04 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/05 15:25:32 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:06:39 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,12 +114,12 @@ int	main(int ac, char *argv[])
 	initstack(a, ac, argv);
 	if (sorted(a))
 	{
-		stackfree(a);
-		stackfree(b);
+		ft_stackfree(a);
+		ft_stackfree(b);
 		return (0);
 	}
 	insert_sort_stack(a, b);
-	stackfree(a);
-	stackfree(b);
+	ft_stackfree(a);
+	ft_stackfree(b);
 	return (0);
 }

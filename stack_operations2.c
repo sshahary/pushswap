@@ -6,13 +6,13 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:16:46 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/05 13:34:08 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:12:22 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_min(t_stack **stack, int x)
+static int	ft_min(t_stack **stack, int x)
 {
 	t_stack	*top;
 	int		min;
@@ -28,7 +28,7 @@ int	ft_min(t_stack **stack, int x)
 	return (min);
 }
 
-void	sortthree(t_stack **a)
+static void	sortthree(t_stack **a)
 {
 	t_stack	*top;
 	int		min;
@@ -64,7 +64,7 @@ void	sortthree(t_stack **a)
 	}
 }
 
-void	sortfour(t_stack **a, t_stack **b)
+static void	sortfour(t_stack **a, t_stack **b)
 {
 	int	count;
 
@@ -87,7 +87,7 @@ void	sortfour(t_stack **a, t_stack **b)
 	pa(a, b);
 }
 
-void	sortfive(t_stack **a, t_stack **b)
+static void	sortfive(t_stack **a, t_stack **b)
 {
 	int	count;
 

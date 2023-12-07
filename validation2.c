@@ -6,13 +6,13 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:34:12 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/05 13:05:03 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:15:35 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*stack_next_min(t_stack **stack)
+static t_stack	*stack_next_min(t_stack **stack)
 {
 	t_stack	*top;
 	t_stack	*min;
