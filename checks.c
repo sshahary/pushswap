@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:43:44 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/05 13:03:26 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:45:50 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	check_argv_contain(int x, char **argv, int i)
 	return (0);
 }
 
-int	check_num(char *str)
+int	check_num(char *num)
 {
 	int	i;
 

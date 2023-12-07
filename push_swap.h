@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:41:09 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/07 14:18:16 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:42:19 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-//# include "Libft/libft.h"
 
 typedef struct s_stack
 {
@@ -38,9 +37,12 @@ void	printstack(t_stack *stack);
 
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
-t_stack	*ft_lstnew(void *content);
+t_stack	*ft_lstnew(int content);
 t_stack	*ft_lstlast(t_stack *lst);
 int		ft_lstsize(t_stack *lst);
+
+int		ft_atoi(const char *str);
+char	**ft_split(char const *s, char c);
 
 void	freeft(char **str);
 void	ft_error(char *a);

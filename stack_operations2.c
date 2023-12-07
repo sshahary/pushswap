@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:16:46 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/07 14:12:22 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:45:21 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static int	ft_min(t_stack **stack, int x)
 	t_stack	*top;
 	int		min;
 
-	head = *stack;
+	top = *stack;
 	min = top->index;
 	while (top->next)
 	{
 		top = top->next;
 		if ((top->index < min) && (top->index != x))
-			min = head->index;
+			min = top->index;
 	}
 	return (min);
 }

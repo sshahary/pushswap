@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:24:23 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/07 14:05:31 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:39:59 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,5 @@ void	ft_stackfree(t_stack **stack)
 		top = top->next;
 		free(tmp);
 	}
-	free(stack)
+	free(stack);
 }
