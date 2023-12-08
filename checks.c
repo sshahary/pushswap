@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:43:44 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/08 13:09:24 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/08 16:24:09 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,59 +26,38 @@ void	ft_error(char *a)
 	exit(1);
 }
 
-int	check_argv_contain(int x, char **argv, int i)
+void	liberator_stack(t_stack **stack, int error)
 {
-	i++;
-	while (argv[i])
+	t_stack	*new;
+	t_stack	*tmp;
+
+	new = *stack;
+	while (new)
 	{
-		if (ft_atoi(argv[i]) == x)
-			return (1);
-		i++;
+		tmp = new;
+		new = new->next;
+		free(tmp);
 	}
-	return (0);
+	new = NULL;
+	tmp = NULL;
+	*stack = NULL;
+	if (error == 1)
+		ft_error("Error");
 }
 
-int	check_num(char *num)
+void	ft_duplicates(t_stack *a)
 {
-	int	i;
+	t_stack	*new;
 
-	i = 0;
-	if (num[0] == '-')
-		i++;
-	while (num[i])
+	while (a)
 	{
-		if (!(num[i] >= '0' && num[i] <= '9'))
-			return (0);
-		i++;
+		new = a->next;
+		while (new)
+		{
+			if (a->data == new->data)
+				liberator_stack(&a, 1);
+			new = new->next;
+		}
+		a = a->next;
 	}
-	return (1);
-}
-
-void	check_args(int ac, char **argv)
-{
-	int		i;
-	long	tmp;
-	char	**args;
-
-	i = 0;
-	if (ac == 2)
-		args = ft_split(argv[1], ' ');
-	else
-	{
-		i = 1;
-		args = argv;
-	}
-	while (argv[i])
-	{
-		tmp = ft_atoi(argv[i]);
-		if (!check_num(argv[i]))
-			ft_error("Error");
-		if (check_argv_contain(tmp, argv, i))
-			ft_error("Error");
-		if (tmp < -2147483648 || tmp > 2147483647)
-			ft_error("Error");
-		i++;
-	}
-	if (ac == 2)
-		freeft(args);
 }

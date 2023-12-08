@@ -6,95 +6,34 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:24:23 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/07 14:39:59 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/08 16:30:48 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	freeft(char **str)
+int	sorted(t_stack *stack)
 {
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	while (i >= 0)
+	while (stack->next != NULL)
 	{
-		free(str[i]);
-		i--;
-	}
-}
-
-int	sorted(t_stack **stack)
-{
-	t_stack	*top;
-
-	top = *stack;
-	while (top && top->next)
-	{
-		if (top->data > top->next->data)
+		if (stack->data > stack->next->data)
 			return (0);
-		top = top->next;
+		stack = stack->next;
 	}
 	return (1);
 }
 
-int	ft_indexcount(t_stack **stack, int index)
+void	ft_free(char **str)
 {
-	t_stack	*top;
-	int		i;
+	char	*ptr;
 
-	i = 0;
-	top = *stack;
-	while (top)
+	while (*str)
 	{
-		if (top->index == index)
-			break ;
-		i++;
-		top = top->next;
+		ptr = *str;
+		str++;
+		free(ptr);
 	}
-	return (i);
+	str = NULL;
 }
 
-void	top_index(t_stack **stack, int count)
-{
-	t_stack	*top;
-	int		tmp;
 
-	if (count == 0)
-		return ;
-	top = *stack;
-	tmp = ft_lstsize(top) - count;
-	if (count <= (ft_lstsize(top) / 2))
-	{
-		while (count > 0)
-		{
-			ra(stack);
-			count--;
-		}
-	}
-	else
-	{
-		while (tmp > 0)
-		{
-			rra(stack);
-			tmp--;
-		}
-	}
-}
-
-void	ft_stackfree(t_stack **stack)
-{
-	t_stack	*top;
-	t_stack	*tmp;
-
-	top = *stack;
-	while (top)
-	{
-		tmp = top;
-		top = top->next;
-		free(tmp);
-	}
-	free(stack);
-}

@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 13:30:06 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/08 12:47:36 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/08 14:35:49 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new)
 		current = current->next;
 	}
 	current->next = new;
+	new->prev = current;
+	new->next = NULL;
 }
 
 void	ft_lstadd_front(t_stack **lst, t_stack *new)
@@ -42,6 +44,7 @@ t_stack	*ft_lstnew(int content)
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 		return (new);
+	new->prev = NULL;
 	new->data = content;
 	new->next = NULL;
 	return (new);

@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:41:09 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/08 12:44:57 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/08 16:29:05 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,13 @@ typedef struct s_stack
 	int				data;
 	int				index;
 	struct s_stack	*next;
+	struct s_stack	*prev;
 }	t_stack;
 
 void	initstack(t_stack **stack, int ac, char *argv[]);
-void	maxbit(t_stack **a, t_stack **b);
+void	big_sort(t_stack **a, t_stack **b);
 void	normal_sort(t_stack **a, t_stack **b);
 void	insert_sort_stack(t_stack **a, t_stack **b);
-int		ft_swap(t_stack **stack);
-int		ft_push(t_stack **stack1, t_stack **stack2);
-int		rotate(t_stack **stack);
-int		reverse_rotate(t_stack **stack);
-void	printstack(t_stack *stack);
 
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
@@ -47,25 +43,23 @@ char	**ft_split(char const *s, char c);
 
 void	freeft(char **str);
 void	ft_error(char *a);
-int		check_argv_contain(int x, char **argv, int i);
-int		check_num(char *str);
-void	check_args(int ac, char **argv);
-int		sorted(t_stack **stack);
-int		ft_indexcount(t_stack **stack, int index);
-void	top_index(t_stack **stack, int count);
+int		sorted(t_stack *stack);
+void	ft_duplicates(t_stack *a);
 void	ft_stackfree(t_stack **stack);
-void	stackindex(t_stack **stack);
+void	insert_index(t_stack *a, int listsize);
+void	ft_free_str(char **str);
+void	liberator_stack(t_stack **stack, int error);
 
-int		sa(t_stack **a);
-int		sb(t_stack **b);
-int		ss(t_stack **a, t_stack **b);
-int		pa(t_stack **a, t_stack **b);
-int		pb(t_stack **a, t_stack **b);
-int		ra(t_stack **a);
-int		rb(t_stack **b);
-int		rr(t_stack **a, t_stack **b);
-int		rra(t_stack **a);
-int		rrb(t_stack **b);
-int		rrr(t_stack **a, t_stack **b);
+void	sa(t_stack **a);
+void	sb(t_stack **b);
+void	ss(t_stack **a, t_stack **b);
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **a, t_stack **b);
+void	ra(t_stack **a);
+void	rb(t_stack **b);
+void	rr(t_stack **a, t_stack **b);
+void	rra(t_stack **a);
+void	rrb(t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
 
 #endif

@@ -6,35 +6,34 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:36:15 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/08 13:10:29 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/08 16:18:36 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	initstack(t_stack **stack, int ac, char **argv)
+void	initstack(t_stack **stack, int ac, char *argv[])
 {
-	t_stack	*new;
-	char	**strtoint;
 	int		i;
+	long	tmp;
 
-	i = 0;
-	if (ac == 2)
-		strtoint = ft_split(argv[1], ' ');
-	else
+	i = 1;
+	if (ac < 2 || argv[1][0] == '\0')
+		ft_error("Error");
+	else if (ac == 2)
 	{
-		i = 1;
-		strtoint = argv;
+		argv = ft_split(argv[1], ' ');
+		i = 0;
 	}
 	while (argv[i])
 	{
-		new = ft_lstnew(ft_atoi(argv[i]));
-		ft_lstadd_back(stack, new);
+		tmp = ft_atoi(argv[i]);
+		if (tmp < -2147483648 || tmp > 2147483647)
+			liberator_stack(stack, 1);
+		ft_lstadd_back(stack, ft_lstnew(tmp));
 		i++;
 	}
-	stackindex(stack);
-	if (ac == 2)
-		freeft(strtoint);
+	ft_duplicates(*stack);
 }
 
 static int	find_max_bit(t_stack **stack)
@@ -57,24 +56,28 @@ static int	find_max_bit(t_stack **stack)
 	return (max_bit);
 }
 
-void	maxbit(t_stack **a, t_stack **b)
+void	big_sort(t_stack **a, t_stack **b)
 {
-	int	max_bit;
-	int	size;
-	int	i;
+	t_stack	*top_a;
+	int		max_bit;
+	int		size;
+	int		i;
+	int		j;
 
-	max_bit = find_max_bit(a);
-	size = ft_lstsize(*a);
 	i = 0;
+	top_a = *a;
+	size = ft_lstsize(top_a);
+	max_bit = find_max_bit(a);
 	while (i < max_bit)
 	{
-		while (0 < size)
+		j = 0;
+		while (j++ < size)
 		{
-			if ((((*a)->index >> i) & 1) == 1)
+			top_a = *a;
+			if (((top_a->index >> i) & 1) == 1)
 				ra(a);
 			else
 				pb(a, b);
-			size--;
 		}
 		while (ft_lstsize(*b) != 0)
 			pa(a, b);
@@ -84,8 +87,8 @@ void	maxbit(t_stack **a, t_stack **b)
 
 void	insert_sort_stack(t_stack **a, t_stack **b)
 {
-	if (ft_lstsize(*a) <= 5)
+	if (ft_lstsize(*a) <= 8)
 		normal_sort(a, b);
 	else
-		maxbit(a, b);
+		big_sort(a, b);
 }

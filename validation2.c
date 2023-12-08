@@ -6,46 +6,36 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:34:12 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/07 14:15:35 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/08 16:26:59 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_stack	*stack_next_min(t_stack **stack)
+void	insert_index(t_stack *a, int listsize)
 {
-	t_stack	*top;
-	t_stack	*min;
-	int		flag;
+	int		index;
+	int		lowest_value;
+	t_stack	*new;
+	t_stack	*lowest_ptr;
 
-	min = NULL;
-	flag = 0;
-	top = *stack;
-	if (top)
+	index = 1;
+	while (index <= listsize)
 	{
-		while (top)
+		lowest_value = 2147483647;
+		new = a;
+		lowest_ptr = NULL;
+		while (new)
 		{
-			if ((top->index == -1) && (!flag || top->data < min->data))
+			if (new->index == 0 && new->data <= lowest_value)
 			{
-				min = top;
-				flag = 1;
+				lowest_ptr = new;
+				lowest_value = new->data;
 			}
-			top = top->next;
+			new = new->next;
 		}
-	}
-	return (min);
-}
-
-void	stackindex(t_stack **stack)
-{
-	t_stack	*top;
-	int		i;
-
-	i = 0;
-	top = stack_next_min(stack);
-	while (top)
-	{
-		top->index = i++;
-		top = stack_next_min(stack);
+		if (lowest_ptr != NULL)
+			lowest_ptr->index = index;
+		index++;
 	}
 }
