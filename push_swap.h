@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:41:09 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/07 14:42:19 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/08 12:44:57 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ t_stack	*ft_lstnew(int content);
 t_stack	*ft_lstlast(t_stack *lst);
 int		ft_lstsize(t_stack *lst);
 
-int		ft_atoi(const char *str);
+long	ft_atoi(char *str);
+size_t	ft_strlen(const char *s);
 char	**ft_split(char const *s, char c);
 
 void	freeft(char **str);

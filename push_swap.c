@@ -6,100 +6,50 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:39:04 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/07 14:06:39 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/08 13:08:49 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_swap(t_stack **stack)
+size_t	ft_strlen(const char *s)
 {
-	t_stack	*top;
-	t_stack	*next;
-	int		temp_index;
-	int		temp_data;
+	int	i;
 
-	if (ft_lstsize(*stack) > 2)
-		return (-1);
-	top = *stack;
-	next = top->next;
-	if (!top || !next)
-		write(1, "Error\n", 6);
-	temp_data = top->data;
-	temp_index = top->index;
-	top->data = next->data;
-	top->index = next->index;
-	next->data = temp_data;
-	next->index = temp_index;
-	return (0);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
 
-int	ft_push(t_stack **stack1, t_stack **stack2)
+long	ft_atoi(char *str)
 {
-	t_stack	*new;
-	t_stack	*temp1;
-	t_stack	*temp2;
+	long	r;
+	long	i;
+	int		s;
 
-	if (ft_lstsize(*stack2) == 0)
-		return (-1);
-	temp1 = *stack1;
-	temp2 = *stack2;
-	new = temp2;
-	temp2 = temp2->next;
-	*stack2 = temp2;
-	if (!temp1)
+	r = 0;
+	s = 1;
+	i = 0;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
+		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
+		i++;
+	if (str[i] == '-')
 	{
-		temp1 = new;
-		temp1->next = NULL;
-		*stack1 = temp1;
+		s = -1;
+		i++;
 	}
-	else
+	else if (str[i] == '+')
+		i++;
+	while (str[i] >= 48 && str[i] <= 57)
 	{
-		new->next = temp1;
-		*stack1 = new;
+		r = r * 10 + (str[i] - '0');
+		i++;
 	}
-	return (0);
+	return (r * s);
 }
 
-int	rotate(t_stack **stack)
-{
-	t_stack	*head;
-	t_stack	*tail;
-
-	if (ft_lstsize(*stack) < 2)
-		return (-1);
-	head = *stack;
-	tail = ft_lstlast(*stack);
-	*stack = head->next;
-	head->next = NULL;
-	tail->next = head;
-	return (0);
-}
-
-int	reverse_rotate(t_stack **stack)
-{
-	t_stack	*head;
-	t_stack	*tail;
-
-	if (ft_lstsize(*stack) < 2)
-		return (-1);
-	head = *stack;
-	tail = ft_lstlast(*stack);
-	while (head)
-	{
-		if (head->next->next == NULL)
-		{
-			head->next = NULL;
-			break ;
-		}
-		head = head->next;
-	}
-	tail->next = *stack;
-	*stack = tail;
-	return (0);
-}
-
-int	main(int ac, char *argv[])
+int	main(int ac, char **argv)
 {
 	t_stack	**a;
 	t_stack	**b;
@@ -107,10 +57,8 @@ int	main(int ac, char *argv[])
 	if (ac < 2)
 		return (-1);
 	check_args(ac, argv);
-	a = (t_stack **)malloc(sizeof(t_stack *));
-	b = (t_stack **)malloc(sizeof(t_stack *));
-	*a = NULL;
-	*b = NULL;
+	a = (t_stack **)malloc(sizeof(t_stack));
+	b = (t_stack **)malloc(sizeof(t_stack));
 	initstack(a, ac, argv);
 	if (sorted(a))
 	{

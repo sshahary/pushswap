@@ -2,15 +2,17 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 
 SRCS = push_swap.c \
-	   operations.c \
-	   operations2.c \
-	   stack_operations.c \
-	   stack_operations2.c \
-	   validation.c \
-	   validation2.c \
-	   checks.c \
-	   list_operation.c \
-	   utilis.c \
+		ft_swap.c \
+		ft_push.c \
+		ft_rotate.c \
+		ft_rrotate.c \
+		stack_operations.c \
+		stack_operations2.c \
+		validation.c \
+		validation2.c \
+		checks.c \
+		list_operation.c \
+		utilis.c \
 
 
 

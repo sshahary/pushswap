@@ -6,13 +6,13 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:36:15 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/07 14:39:35 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/08 13:10:29 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	initstack(t_stack **stack, int ac, char *argv[])
+void	initstack(t_stack **stack, int ac, char **argv)
 {
 	t_stack	*new;
 	char	**strtoint;
@@ -84,8 +84,8 @@ void	maxbit(t_stack **a, t_stack **b)
 
 void	insert_sort_stack(t_stack **a, t_stack **b)
 {
-	if (ft_lstsize(*a) > 5)
-		maxbit(a, b);
-	else
+	if (ft_lstsize(*a) <= 5)
 		normal_sort(a, b);
+	else
+		maxbit(a, b);
 }

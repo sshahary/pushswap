@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:43:44 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/07 14:45:50 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/08 13:09:24 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,16 @@
 
 void	ft_error(char *a)
 {
-	write(1, &a, 1);
+	int	i;
+
+	i = 0;
+	while (a[i])
+	{
+		write(1, &a[i], 1);
+		i++;
+	}
 	write(1, "\n", 1);
-	exit(0);
+	exit(1);
 }
 
 int	check_argv_contain(int x, char **argv, int i)
@@ -40,7 +47,7 @@ int	check_num(char *num)
 		i++;
 	while (num[i])
 	{
-		if (!(num[i] >= 0 && num[i] <= 9))
+		if (!(num[i] >= '0' && num[i] <= '9'))
 			return (0);
 		i++;
 	}
@@ -61,12 +68,12 @@ void	check_args(int ac, char **argv)
 		i = 1;
 		args = argv;
 	}
-	while (args[i])
+	while (argv[i])
 	{
-		tmp = ft_atoi(args[i]);
-		if (!(check_num(args[i])))
+		tmp = ft_atoi(argv[i]);
+		if (!check_num(argv[i]))
 			ft_error("Error");
-		if (check_argv_contain(tmp, args, i))
+		if (check_argv_contain(tmp, argv, i))
 			ft_error("Error");
 		if (tmp < -2147483648 || tmp > 2147483647)
 			ft_error("Error");
