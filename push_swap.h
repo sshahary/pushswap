@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:41:09 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/09 11:14:19 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/09 12:03:03 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char	**ft_split(char const *s, char c);
 
 void	ft_error(char *a);
 int		sorted(t_stack *stack);
-void	ft_duplicates(t_stack *a);
+void	ft_samearguments(t_stack *a);
 void	insert_index(t_stack *a, int listsize);
 int		ft_count_rot(t_stack *b, int size);
 void	ft_stackfree(t_stack **stack, int error);

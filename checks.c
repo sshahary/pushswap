@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:43:44 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/09 11:13:36 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/09 12:01:56 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	ft_stackfree(t_stack **stack, int error)
 		ft_error("Error");
 }
 
-void	ft_duplicates(t_stack *a)
+void	ft_samearguments(t_stack *a)
 {
 	t_stack	*new;
 

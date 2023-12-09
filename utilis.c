@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 14:25:21 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/08 10:58:49 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/09 11:58:01 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,15 @@ static	int	count_words(const char *s, char c)
 			if (j)
 				j = 0;
 		}
-		else
+		else if (!j)
 		{
-			if (!j)
-			{
-				i++;
-				j = 1;
-			}
+			i++;
+			j = 1;
 		}
 		k++;
 	}
+	if (i == 0)
+		exit(1);
 	return (i);
 }
 
