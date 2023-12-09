@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:43:44 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/09 09:53:50 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/09 11:13:36 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	sorted(t_stack *stack)
 	return (1);
 }
 
-void	liberator_stack(t_stack **stack, int error)
+void	ft_stackfree(t_stack **stack, int error)
 {
 	t_stack	*new;
 	t_stack	*tmp;
@@ -66,7 +66,7 @@ void	ft_duplicates(t_stack *a)
 		while (new)
 		{
 			if (a->data == new->data)
-				liberator_stack(&a, 1);
+				ft_stackfree(&a, 1);
 			new = new->next;
 		}
 		a = a->next;

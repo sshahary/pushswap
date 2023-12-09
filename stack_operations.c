@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:36:15 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/08 16:18:36 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/09 11:15:05 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	initstack(t_stack **stack, int ac, char *argv[])
 	{
 		tmp = ft_atoi(argv[i]);
 		if (tmp < -2147483648 || tmp > 2147483647)
-			liberator_stack(stack, 1);
+			ft_stackfree(stack, 1);
 		ft_lstadd_back(stack, ft_lstnew(tmp));
 		i++;
 	}
