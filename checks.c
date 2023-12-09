@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:43:44 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/09 14:27:13 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/09 15:27:24 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	ft_error(char *a)
 	i = 0;
 	while (a[i])
 	{
-		write(1, &a[i], 1);
+		write(2, &a[i], 1);
 		i++;
 	}
-	write(1, "\n", 1);
+	write(2, "\n", 1);
 	exit(1);
 }
 
@@ -80,11 +80,13 @@ int	has_valid_digits(char **argv, int start, int end)
 	while (start < end)
 	{
 		arg = argv[start];
+		if (*arg == '-')
+			arg++;
 		while (*arg)
 		{
 			if (!(*arg >= '0' && *arg <= '9'))
 			{
-				write(1, "Error: Invalid Output provided\n", 31);
+				ft_error("Error");
 				return (0);
 			}
 			arg++;
