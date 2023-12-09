@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:43:44 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/09 12:01:56 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/09 14:27:13 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,25 @@ void	ft_samearguments(t_stack *a)
 		}
 		a = a->next;
 	}
+}
+
+int	has_valid_digits(char **argv, int start, int end)
+{
+	char	*arg;
+
+	while (start < end)
+	{
+		arg = argv[start];
+		while (*arg)
+		{
+			if (!(*arg >= '0' && *arg <= '9'))
+			{
+				write(1, "Error: Invalid Output provided\n", 31);
+				return (0);
+			}
+			arg++;
+		}
+		start++;
+	}
+	return (1);
 }

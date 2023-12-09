@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:41:09 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/09 12:03:03 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/09 13:05:03 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	ft_samearguments(t_stack *a);
 void	insert_index(t_stack *a, int listsize);
 int		ft_count_rot(t_stack *b, int size);
 void	ft_stackfree(t_stack **stack, int error);
+int		has_valid_digits(char **argv, int start, int end);
 
 void	sa(t_stack **a);
 void	sb(t_stack **b);
