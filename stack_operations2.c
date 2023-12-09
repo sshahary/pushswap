@@ -6,30 +6,11 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 11:16:46 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/08 16:29:41 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/09 09:12:08 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	ft_count_rot(t_stack *b, int size)
-{
-	t_stack	*ptr;
-	int		i;
-
-	i = 0;
-	ptr = b;
-	if (!ptr)
-		return (0);
-	while (i != size && ptr)
-	{
-		if (ptr->index == size)
-			return (i);
-		ptr = ptr->next;
-		i++;
-	}
-	return (i);
-}
 
 static int	ft_highest(t_stack *a)
 {

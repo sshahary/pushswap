@@ -9,7 +9,6 @@ SRCS = push_swap.c \
 		stack_operations.c \
 		stack_operations2.c \
 		validation.c \
-		validation2.c \
 		checks.c \
 		list_operation.c \
 		utilis.c \

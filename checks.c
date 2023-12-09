@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 12:43:44 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/08 16:24:09 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/09 09:53:50 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,17 @@ void	ft_error(char *a)
 	}
 	write(1, "\n", 1);
 	exit(1);
+}
+
+int	sorted(t_stack *stack)
+{
+	while (stack->next != NULL)
+	{
+		if (stack->data > stack->next->data)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }
 
 void	liberator_stack(t_stack **stack, int error)
