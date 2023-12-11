@@ -6,7 +6,7 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:39:04 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/09 15:26:43 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/11 11:22:07 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ int	main(int ac, char **argv)
 	t_stack	*b;
 
 	if (ac < 2)
-		return (-1);
-	if (!has_valid_digits(argv, 1, ac))
 		return (-1);
 	a = NULL;
 	b = NULL;

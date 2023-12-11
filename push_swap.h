@@ -6,13 +6,12 @@
 /*   By: sshahary <sshahary@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:41:09 by sshahary          #+#    #+#             */
-/*   Updated: 2023/12/09 13:05:03 by sshahary         ###   ########.fr       */
+/*   Updated: 2023/12/11 11:22:24 by sshahary         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# define STACK_SIZE
 
 # include <stdio.h>
 # include <stdlib.h>
